@@ -16,7 +16,7 @@ test.only('First Playwright Test', async ({browser}) =>
   // if CSS: await page.locator('#buttonId').click();
 
   // web driver wait
-  const errorMsg = await page.getByRole('alert').textContent();
+  const errorMsg = await page.getByRole('alert').textContent(); //MUI React 'alert' error message
   console.log('Error:', errorMsg.trim());
   // if CSS: console.log(await page.locator("[style='block']").textContent());
 
