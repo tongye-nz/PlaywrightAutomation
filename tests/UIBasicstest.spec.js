@@ -7,10 +7,14 @@ test.only('First Playwright Test', async ({browser}) =>
   await page.goto('https://orange-plant-0ccfa0d00.1.azurestaticapps.net/login');
   console.log(await page.title());
   await expect(page).toHaveTitle(/PetWhenua/);
+
   //CSS, Xpath
+  const userName = page.locator('#«r4»');
+  const password = page.locator('#«r5»');
+
   await page.locator('')
-  await page.locator('#«r4»').type('admin');
-  await page.locator('#«r5»').type('admin@pas'); //wrong admin pass
+  await userName.type('admin');
+  await password.type('admin@pas'); //wrong admin pass
 
   await page.locator('main').getByRole('button', { name: 'Sign In' }).click(); //MUI React 'Sign in' button
   // if CSS: await page.locator('#buttonId').click();
