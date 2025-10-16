@@ -10,6 +10,15 @@ test.only('First Playwright Test', async ({browser}) =>
   //CSS, Xpath
   await page.locator('')
   await page.locator('#«r4»').type('admin');
-  await page.locator('#«r5»').type('admin@pass');
+  await page.locator('#«r5»').type('admin@pas'); //wrong admin pass
+
+  await page.locator('main').getByRole('button', { name: 'Sign In' }).click(); //MUI React 'Sign in' button
+  // if CSS: await page.locator('#buttonId').click();
+
+  // web driver wait
+  const errorMsg = await page.getByRole('alert').textContent();
+  console.log('Error:', errorMsg.trim());
+  // if CSS: console.log(await page.locator("[style='block']").textContent());
+
 
 });
