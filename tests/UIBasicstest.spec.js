@@ -14,9 +14,8 @@ test.only('First Playwright Test', async ({browser}) =>
   const signIn = page.locator('main').getByRole('button', { name: 'Sign In' }); //MUI React 'Sign in' button
 
   await page.locator('')
-  await userName.type('admin');
-  await password.type('admin@pas'); //wrong admin pass
-
+  await userName.type('admi');
+  await password.type('admin@pass'); 
   await signIn.click(); 
   // if CSS: await page.locator('#buttonId').click();
 
@@ -27,7 +26,7 @@ test.only('First Playwright Test', async ({browser}) =>
 
   //type fill
   await userName.fill('');
-  await userName.fill('tongye28');
+  await userName.fill('admin');
   await signIn.click();
 
 
