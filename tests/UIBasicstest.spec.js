@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('First Playwright Test', async ({browser}) =>
+test('First Playwright Test', async ({browser}) =>
   // test.only = only run this test script
 {
   const context = await browser.newContext();
@@ -31,4 +31,15 @@ test.only('First Playwright Test', async ({browser}) =>
   await signIn.click();
 
 
+});
+
+test.only('UI Controls', async ({page})=>
+{
+  await page.goto("https://rahulshettyacademy.com/loginpagePractice");
+  const userName = page.locator('#username');
+  const signIn = page.locator('signInBtn');
+  const dropdown = page.locator('select.form-control');
+  await dropdown.selectOption('Consult');
+  await page.pause;
+  
 });
