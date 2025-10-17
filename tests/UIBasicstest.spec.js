@@ -5,25 +5,20 @@ test('First Playwright Test', async ({browser}) =>
 {
   const context = await browser.newContext();
   const page = await context.newPage();
-  await page.goto('https://orange-plant-0ccfa0d00.1.azurestaticapps.net/login');
+  const userName = page.locator('#username');
+  const signIn = page.locator('signInBtn');
+  const cardTitles = page.locator('.card-body a');
+  await page.goto('https://rahulshettyacademy.com/loginpagePractise');
   console.log(await page.title());
-  await expect(page).toHaveTitle(/PetWhenua/);
 
-  //CSS, Xpath
-  const userName = page.locator('#«r4»');
-  const password = page.locator('#«r5»');
-  const signIn = page.locator('main').getByRole('button', { name: 'Sign In' }); //MUI React 'Sign in' button
-
-  await page.locator('')
-  await userName.type('admi');
-  await password.type('admin@pass'); 
+  //CSS
+  await userName.type('rahulshetty');
+  await page.locator("[type='password']").type('learning');
   await signIn.click(); 
-  // if CSS: await page.locator('#buttonId').click();
 
   // web driver wait
-  const errorMsg = await page.getByRole('alert').textContent(); //MUI React 'alert' error message
-  console.log('Error:', errorMsg.trim());
-  // if CSS: console.log(await page.locator("[style='block']").textContent());
+  console.log(await page.locator("[style='block']").textContent());
+  await expect(page.locator("[style*='block']")).toContainText('Incorrect');
 
   //type fill
   await userName.fill('');
@@ -35,11 +30,11 @@ test('First Playwright Test', async ({browser}) =>
 
 test.only('UI Controls', async ({page})=>
 {
-  await page.goto("https://rahulshettyacademy.com/loginpagePractice");
+  await page.goto("https://rahulshettyacademy.com/loginpagePractise");
   const userName = page.locator('#username');
   const signIn = page.locator('signInBtn');
   const dropdown = page.locator('select.form-control');
-  await dropdown.selectOption('Consult');
-  await page.pause;
+  await dropdown.selectOption('consult');
+  await page.pause();
   
 });
