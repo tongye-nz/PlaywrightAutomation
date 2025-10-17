@@ -35,6 +35,8 @@ test.only('UI Controls', async ({page})=>
   const signIn = page.locator('signInBtn');
   const dropdown = page.locator('select.form-control');
   await dropdown.selectOption('consult');
+  await page.locator('.radiotextsty').last().click();
+  await page.locator('#okayBtn').click();
   await page.pause();
   
 });
