@@ -9,7 +9,7 @@ test.beforeAll( async ()=>
             data:loginPayload
         }) // 200, 201
     expect(loginResponse.ok()).toBeTruthy();
-    const loginResponseJson = await loginPayload.json();
+    const loginResponseJson = await loginResponse.json();
     const token = loginResponseJson.token;
     console.log(token);
 
