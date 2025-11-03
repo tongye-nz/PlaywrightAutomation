@@ -4,7 +4,7 @@ const loginPayload = {usernameOrEmail: "vet01", password: "TestPass123!"};
 test.beforeAll( async ()=>
 {
     const apiContext = await request.newContext();
-    const loginResponse = apiContext.post("https://petwhenua-gpggdjawh0duc2du.australiaeast-01.azurewebsites.net/api/auth/login",
+    const loginResponse = await apiContext.post("https://petwhenua-gpggdjawh0duc2du.australiaeast-01.azurewebsites.net/api/auth/login",
         {
             data:loginPayload
         }) // 200, 201
