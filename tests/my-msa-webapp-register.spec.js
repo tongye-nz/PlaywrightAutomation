@@ -6,7 +6,7 @@ test('Playwright Special locators', async ({ page }) => {
     await expect(page.getByText("Create Your Account")).toBeVisible();
 
     await page.getByPlaceholder("First Name").fill("playwright");
-    await page.getByPlaceholder("Last Name").fill("testone");
+    await page.getByPlaceholder("Last Name").fill("testone"); // name cannot contain number
     await page.getByPlaceholder("Username").fill("playwright_test01");
     await page.getByPlaceholder("Email").fill("playwright_test01@test.com");
     await page.getByPlaceholder('Enter your password').fill('TestPass@123!');
