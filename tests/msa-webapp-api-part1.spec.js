@@ -14,3 +14,15 @@ test.beforeAll( async ()=>
     console.log(token);
 
 });
+
+test('Playwright getBy with MSA login page', async ({ page }) => {
+
+    await page.goto("https://orange-plant-0ccfa0d00.1.azurestaticapps.net/login");
+    await expect(page.getByText("Sign in to PetWhenua")).toBeVisible();
+
+    await page.getByPlaceholder("Email or Username").fill("vet01");
+    await page.getByPlaceholder('Enter your password').fill('TestPass123!');
+    await page.getByRole("button",{name : "Sign In"}).click();
+    await page.waitForTimeout(3000);
+    await expect(page.getByText("My Profile")).toBeVisible();
+});
