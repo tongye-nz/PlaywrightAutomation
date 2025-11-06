@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Playwright Special locators', async ({ page }) => {
+test('Playwright getBy with MSA register page', async ({ page }) => {
 
     await page.goto("https://orange-plant-0ccfa0d00.1.azurestaticapps.net/register");
     await expect(page.getByText("Create Your Account")).toBeVisible();
