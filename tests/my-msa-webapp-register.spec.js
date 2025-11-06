@@ -6,11 +6,12 @@ test('Playwright Special locators', async ({ page }) => {
     await expect(page.getByText("Create Your Account")).toBeVisible();
 
     await page.getByPlaceholder("First Name").fill("playwright");
-    await page.getByPlaceholder("Last Name").fill("test01");
+    await page.getByPlaceholder("Last Name").fill("testone");
     await page.getByPlaceholder("Username").fill("playwright_test01");
     await page.getByPlaceholder("Email").fill("playwright_test01@test.com");
-    await page.getByPlaceholder("Password").fill("Pass@987");
-    await page.getByPlaceholder("Confirm Password").fill("Pass@987");
+    await page.getByPlaceholder('Enter your password').fill('TestPass@123!');
+    await page.getByPlaceholder('Confirm your password').fill('TestPass@123!');
     await page.getByRole("button",{name : "Create Account"}).click();
-
+    await page.waitForTimeout(3000);
+    await expect(page.getByText("My Profile")).toBeVisible();
 });
