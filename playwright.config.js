@@ -22,6 +22,8 @@ export default defineConfig({
 
   use: {
     browserName: 'chromium',
+      video: 'on',
+      trace: 'on',
   },
  
 });
